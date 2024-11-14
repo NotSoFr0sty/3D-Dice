@@ -62,6 +62,10 @@ public class Die : MonoBehaviour {
         }
     }
 
+    public float GetDieSpeed() {
+        return rb.velocity.magnitude;
+    }
+
     IEnumerator FixDie() {
 
         yield return new WaitForSeconds(2.0f);

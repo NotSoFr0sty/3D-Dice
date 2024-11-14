@@ -11,7 +11,7 @@ public class DieNumberDetection : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other) {
 
-        if (other.CompareTag("Ground")) {
+        if (other.CompareTag("Ground") && (die.GetDieSpeed() <= 0.5)) {
 
             UIManager.Instance.UpdateDieText(gameObject.name);
             die.CancelFixDie();
