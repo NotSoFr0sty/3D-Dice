@@ -1,7 +1,9 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-public class Die : MonoBehaviour {
+public class Die : MonoBehaviour, IPointerClickHandler {
 
     private Rigidbody rb;
     public float maxTorque = 20.0f;
@@ -52,6 +54,14 @@ public class Die : MonoBehaviour {
         Vector3 torqueVector = Quaternion.Euler(0, Random.Range(0f, 360f), 0) * new Vector3(Random.Range(minTorque, maxTorque), Random.Range(minTorque, maxTorque), Random.Range(minTorque, maxTorque));
 
         rb.AddTorque(torqueVector);
+    }
+
+    public void OnPointerClick(PointerEventData eventData) {
+
+        if (grounded) {
+
+            RollDie();
+        }
     }
 
     private void OnCollisionEnter(Collision other) {
