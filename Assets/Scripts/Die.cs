@@ -29,6 +29,13 @@ public class Die : MonoBehaviour {
             // Roll the die
             RollDie();
         }
+
+        // Restrict die's Y-axis
+        if (transform.position.y > 0.9f) {
+
+            transform.position = new Vector3(transform.position.x, 0.9f, transform.position.z);
+            rb.velocity = Vector3.zero;
+        }
     }
 
     private void RollDie() {
