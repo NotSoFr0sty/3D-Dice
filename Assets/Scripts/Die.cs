@@ -30,6 +30,7 @@ public class Die : MonoBehaviour {
 
     private void RollDie() {
 
+        // Add a random jump force
         rb.AddForce(Random.Range(jumpForceMin, jumpForceMax) * Vector3.up, ForceMode.Impulse);
 
         // Calculate a random torqueVector
